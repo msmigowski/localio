@@ -1,4 +1,3 @@
-require 'google_drive'
 require 'localio/term'
 require 'localio/config_store'
 

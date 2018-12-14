@@ -4,8 +4,8 @@
 require 'localio'
 
 begin
-  Localio.from_cmdline(ARGV)
+  locfiles = Dir.glob('Locfile-*')
+  locfiles.each { |file| Localio.from_cmdline(file) }
 rescue => e
   abort e.message
 end
-
