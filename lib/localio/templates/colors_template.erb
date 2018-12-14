@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<% @segments.each do |term| if term.is_comment? %> <!-- <%= term.translation %> --> <% else
+%>  <color name="<%= term.key %>"><%= term.translation %></string>
+<% end end %></resources>

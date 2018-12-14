@@ -7,14 +7,14 @@ require 'localio/filter'
 module Localio
 
   def self.from_cmdline(args)
-    if ARGV.empty?
+    if args.empty?
       if File.exist? 'Locfile'
         process_locfile('Locfile')
       else
         raise ArgumentError, 'Locfile not found in current directory, and no compatible file supplied in arguments.'
       end
     else
-      process_locfile(ARGV.shift)
+      process_locfile(args)
     end
   end
 

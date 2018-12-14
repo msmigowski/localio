@@ -1,3 +1,4 @@
+require 'localio/writers/colors_writer'
 require 'localio/writers/android_writer'
 require 'localio/writers/ios_writer'
 require 'localio/writers/swift_writer'
@@ -9,6 +10,8 @@ require 'localio/writers/resx_writer'
 module LocalizableWriter
   def self.write(platform, languages, terms, path, formatter, options)
     case platform
+      when :colors
+        ColorWriter.write languages, terms, path, formatter, options
       when :android
         AndroidWriter.write languages, terms, path, formatter, options
       when :ios
@@ -24,7 +27,7 @@ module LocalizableWriter
       when :resx
         ResXWriter.write languages, terms, path, formatter, options
       else
-        raise ArgumentError, 'Platform not supported! Current possibilities are :android, :ios, :json, :rails, :java_properties, :resx'
+        raise ArgumentError, 'Platform not supported! Current possibilities are :colors, :android, :ios, :json, :rails, :java_properties, :resx'
     end
   end
 end
